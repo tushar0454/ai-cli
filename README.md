@@ -12,11 +12,10 @@
   - **Ollama API**: Default integration for fast and efficient AI responses.
   - **OpenAI API**: Optional integration with API key validation.
 - **Command History**: Built-in history management feature to keep track of previously generated commands.
-- **User-Friendly Spinners**: Visual indicators for ongoing processes to enhance the user experience.
 
 ## 📦 Installation
 
-### Binary Installation
+### Binary Installation (Supported only for Linux)
 
 You can install the binary directly by running the following command:
 
@@ -24,7 +23,7 @@ You can install the binary directly by running the following command:
 curl -sSL https://raw.githubusercontent.com/rohitlohar45/ai-cli/master/install.sh | bash
 ```
 
-## 🛠 Build from Source
+### Build from Source
 
 If you prefer to build from source, follow these steps:
 
@@ -52,8 +51,38 @@ To use `ai-cli`, simply type your command in natural language, and the CLI will 
 Run the command:
 
 ```bash
-./ai-cli "your natural language command here"
+ai-cli "your natural language command here"
 ```
+
+### Example
+
+```bash
+ai-cli "show all running processes"
+```
+
+This would output the relevant command, such as `ps aux` on Linux or `tasklist` on Windows.
+
+## 🐳 Docker Setup for Code Llama
+
+For those who prefer running `ai-cli` inside a Docker container or want to use **Code Llama** as part of their setup, follow these steps:
+
+### Pull the Code Llama Docker Image
+
+To pull the Docker image for **Code Llama**, run the following command:
+
+```bash
+docker pull radstudio/codellama
+```
+
+### Run Code Llama in a Docker Container
+
+Start the container with the following command, exposing ports `8080` and `11434` for external access:
+
+```bash
+docker run -d --name codellama -p 8080:8080 -p 11434:11434 radstudio/codellama:latest
+```
+
+This will run Code Llama in the background, making it accessible at `localhost:8080` and `localhost:11434` for AI CLI interactions.
 
 ## 📚 Contributing
 
